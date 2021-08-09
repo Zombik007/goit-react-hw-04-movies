@@ -1,0 +1,17 @@
+.ReviewsList {
+  list-style: none;
+  margin-bottom: 15px;
+}
+
+.ReviewsItem:not(:last-child) {
+  margin-bottom: 50px;
+}
+
+.ReviewsItem__title {
+  margin: 0;
+  padding-left: 10px;
+}
+
+.ReviewsItem__text {
+  margin: 0;
+}
