@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import * as moviesApi from '../services/movies-api';
+import * as moviesApi from '../../services/movies-api';
 import image from '../../images/no-avatar-available.png';
 import styles from './Cast.module.css';
 
 export default function Cast({ movieId }) {
-  const [moviesCast, setMoviesCast] = useState(null);
+  const [moviesCast, setMoviesCast] = useState([]);
 
   useEffect(() => {
     moviesApi
@@ -16,11 +16,11 @@ export default function Cast({ movieId }) {
       .then(setMoviesCast);
   }, [movieId]);
 
-  console.log('moviesCast: ', moviesCast);
+  // console.log('moviesCast: ', moviesCast);
 
   return (
     <>
-      {moviesCast && (
+      {moviesCast.length !== 0 ? (
         <ul className={styles.CastList}>
           {moviesCast.map(movieCast => (
             <li className={styles.CastItem} key={movieCast.cast_id}>
@@ -38,6 +38,8 @@ export default function Cast({ movieId }) {
             </li>
           ))}
         </ul>
+      ) : (
+        <p>We don't have any casts for this movie</p>
       )}
     </>
   );

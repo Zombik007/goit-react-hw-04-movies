@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './HomePage.module.css';
-import * as moviesApi from '../services/movies-api';
+import * as moviesApi from '../../services/movies-api';
 import image from '../../images/no-image-available.jpg';
 
 export default function HomePage() {
@@ -17,7 +17,7 @@ export default function HomePage() {
       .then(setMovies);
   }, []);
 
-  console.log('movies: ', movies);
+  // console.log('movies: ', movies);
 
   return (
     <>

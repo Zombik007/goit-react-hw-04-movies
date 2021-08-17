@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Reviews.module.css';
-import * as moviesApi from '../services/movies-api';
+import * as moviesApi from '../../services/movies-api';
 
 export default function Reviews({ movieId }) {
   const [moviesReviews, setmoviesReviews] = useState([]);
@@ -15,7 +15,7 @@ export default function Reviews({ movieId }) {
       .then(setmoviesReviews);
   }, [movieId]);
 
-  console.log('moviesReviews: ', moviesReviews);
+  // console.log('moviesReviews: ', moviesReviews);
 
   return (
     <>

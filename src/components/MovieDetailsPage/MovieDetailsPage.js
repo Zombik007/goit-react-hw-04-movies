@@ -5,11 +5,12 @@ import {
   useHistory,
   useLocation,
   useRouteMatch,
+  useParams,
+  Switch,
 } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
 import Loader from '../Loader/Loader';
 import image from '../../images/no-image-available.jpg';
-import * as moviesApi from '../services/movies-api';
+import * as moviesApi from '../../services/movies-api';
 import styles from './MovieDetailsPage.module.css';
 
 const Cast = lazy(() =>
@@ -35,7 +36,7 @@ export default function MovieDetailsPage() {
   };
 
   console.log('movieDetails: ', movieDetails);
-  console.log(location);
+  // console.log(location);
 
   return (
     <>
@@ -86,13 +87,15 @@ export default function MovieDetailsPage() {
       </ul>
 
       <Suspense fallback={<Loader />}>
-        <Route path={`${path}/cast`}>
-          {movieDetails && <Cast movieId={movieId} />}
-        </Route>
+        <Switch>
+          <Route path={`${path}/cast`}>
+            {movieDetails && <Cast movieId={movieId} />}
+          </Route>
 
-        <Route path={`${path}/reviews`}>
-          {movieDetails && <Reviews movieId={movieId} />}
-        </Route>
+          <Route path={`${path}/reviews`}>
+            {movieDetails && <Reviews movieId={movieId} />}
+          </Route>
+        </Switch>
       </Suspense>
     </>
   );

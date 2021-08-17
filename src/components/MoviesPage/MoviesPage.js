@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import * as moviesApi from '../services/movies-api';
+import * as moviesApi from '../../services/movies-api';
 import { Link, useRouteMatch, useHistory, useLocation } from 'react-router-dom';
 import styles from './MoviesPage.module.css';
 import Searchbar from '../Searchbar/Searchbar';
